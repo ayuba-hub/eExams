@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static%}
+
+<div class="container mt-4">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h1 class="panel-title text-center mt-4"><strong>AVAILABLE COURSES</strong></h1>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+          <th>Exam Name</th>
+          <th>Duration</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      {% for t in courses %}
+      <tr>
+        <td> {{t.course_name|upper}}</td>
+        <td> {{t.time_in_munites}} Minutes</td>
+        <td><a class="btn btn-success btn-sm" style="border-radius:0px;" href="{% url 'take-exam' t.id  %}"><span class="glyphicon glyphicon-check"></span> Attend Exam</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+{% endblock %}

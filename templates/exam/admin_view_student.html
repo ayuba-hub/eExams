@@ -1,0 +1,41 @@
+{% extends 'exam/adminbase.html' %}
+{% block content %}
+{%load static%}
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+
+<br><br>
+<div class="container">
+  <h1 class="text-success text-center mb-4"><strong>STUDENTS</strong></h1>
+  <table class="table table-hover table-bordered" id="dev-table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Admission Number</th>
+        <th>Department</th>
+        <th>Level</th>
+      </tr>
+    </thead>
+    {% for t in students %}
+    <tr>
+      <td>{{t.firstname|title}} {{t.middle_name|title}} {{t.lastname|title}}</td>
+      <td> {{t.admission_number}}</td>
+      <td>{{t.department|upper}}</td>
+      <td>{{t.level|upper}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock content %}

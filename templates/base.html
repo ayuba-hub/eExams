@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    {% endblock %}
+
+    {% block bootstrap %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'font/css/font-awesome.min.css' %}">
+    {% endblock %}
+
+    {% block js %}
+    <script src="{% static 'bootstrap/js/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    {% endblock %}
+
+</head>
+<body>
+    
+    {% block header %}
+  <header class="">
+      <nav class="navbar border-bottom py-4">
+          <div class="container" style="margin-left: 0.5rem;">
+              <img c src="{% static 'images/ksusta.png' %}" alt="ksusta logo" width="80" srcset="">
+              <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+              </a>
+
+              <ul class="nav col-lg-auto justify-content-center my-md-0 text-small">
+                  {% if request.user.is_authenticated and request.user.is_active %}
+                  {% else %}
+        <li>
+          <a href="{% url 'accounts:index' %}" class="nav-link text-success">
+            Home
+          </a>
+        </li>
+        {% endif %}
+        <li>
+            <a href="#" class="nav-link text-success">
+                About
+            </a>
+        </li>
+        <li>
+            <a href="#" class="nav-link text-success">
+                Contact
+            </a>
+        </li>
+        {% if request.user.is_authenticated and request.user.is_active %}
+        <li>
+            <a  href="{% url 'accounts:logout' %}" class="nav-link text-success">Logout</a>
+        </li>
+        {% endif %}
+        {% if not request.user.is_authenticated and not request.user.is_active %}
+        <li>
+            <a  href="{% url 'accounts:index' %}" class="nav-link text-success">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+          </div>
+      </nav>
+  </header>
+  {% endblock %}
+
+
+    {% block content %}
+    {% endblock %}
+
+
+
+    {% block footer %}
+    {% endblock %}
+</body>
+</html>

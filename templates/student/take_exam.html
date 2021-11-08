@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+{%load static%}
+
+
+<div class="container">
+        <div class="container">
+            <div class="card card-body mt-4">
+                <h4 class="card-title text-center text-success">Exam Details</h4>
+                <div class="dropdown-divider"></div>
+                <p></p>
+                COURSE TITLE : {{course.course_name|upper}}
+                <br>
+                COURSE CODE : {{course.course_code|upper}}
+                <br>
+                TOTAL QUESTIONS : {{total_questions}}
+                <br>
+                TOTAL MARKS : {{total_marks}}
+                <br>
+                DURATION: {{course.time_in_munites}} MINUTES
+                <p class="text-center">{{int.instruction}}</p>
+                <div class="dropdown-divider"></div>
+                <h3 class="text-center text-danger">Once You click the start exams your time starts, please read the rules below, Good luck!!!</h3>
+
+                <h4 class="card-title">Rules :</h4>
+                <p class="card-text">
+                    </p><ul style="list-style:decimal;">
+                        <li>All questions are MCQ (Multiple Choice Question)</li>
+                        <li><span class="text-danger">Only one choice is correct among the given.</span></li>
+                        <li>Every question carries a specific marks.</li>
+                        <li>The system will automatically submit your answers once the time is over</li>
+                        <li>If you PRESS refresh or go back to the previous page, there will be a new question for you and the question you were on will be counted as number of attempts.</li>
+                        <li>Questions are presented randomly.</li>
+                        </ul>
+                <a href="{% url 'start-exam' course.id  %}" class="btn btn-success" style="border-radius:0px;">Start Examination</a>
+            </div> 
+        </div> 
+    </div>  
+</div>
+
+{% endblock %}

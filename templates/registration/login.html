@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+  {% block content %}
+
+  <div class="row">
+    <div class="col-sm-5">
+        <div class="container mt-4">
+            <div class="card card-body text-success" style="background-color: #cdf1cd;">
+                <strong>
+                    <h3 class="text-danger text-center">GENERAL EXAM RULES<br>Please Read!!!</h3>
+                    <p>1. Students should be within the vicinity of the examination room 30 minutes before the examination is due.</p>
+                      <p>2. Students are NOT PERMITTED to introduce into the examination room papers/books of any kind, hand bags, mobile phones or any programmable device.</p>
+                      <p>3. Any student without University I.D card and a signed and stamped examination card SHALL NOT be allowed into the examination room.</p>
+                      <p> 4. Where a student is found writing the examination without the requirement in 3 above, that examination SHALL BE terminated.</p>
+                      <p> 5. For appropriate identification, student MUST NOT cover his/her face during the examination.</p>
+                      <p> 6. No student will be permitted to:</p>
+                      <div class="container">
+                      <p>a. Enter the examination room if he/she is more than 30 minutes late</p>
+                      <p> b. Leave the examination room before the end of 45 minutes after the commencement of the examination.</p>
+                      <p> c. eave the examination room during the last 15 minutes of the examination</p>
+                    </div>
+                      <p>7. There should be NO writing on the exam card or any part of the student's body/cloth.</p>
+                      <p>8. To attract the attention of the invigilator, students should raise their hands. Absolute silence MUST be maintained throughout the examination period.</p>
+                      <p> 9. Students are required to sign the attendance slip at their desk.</p>
+                      <p>10. Movement in or around examination premises is strictly.</p>
+                      <p>11. Wearing of p-cap and /or sun glasses is NOT allowed during examination room.</p>
+                      <p> 12. Any student with indecent dressing SHOULD NOT be allowed into examination room.</p>
+                      <p> 13. No student should be allowed to change seat without prior permission from invigilator.</p>
+                      <p> 15. Student are MANDATED to check around them and take away pieces of papers and any implicating material in their surroundings before the commencement of any examination.</p>
+                </strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm">
+      <div class="container" style="margin-top: 150px; width: 28em;">
+          <div class="text-success">
+              <h3>Student Login</h3>
+              <div class="dropdown-divider"></div>
+              <form method="post" class="mt-4">
+                  {% csrf_token %}
+                  <p>
+                  {{form|crispy}}
+                  </p>
+                  <button class="btn btn-outline-success mt-2 mb-4" type="submit">Login</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %} 
+    
+
+
+</body>
+
+</html>
